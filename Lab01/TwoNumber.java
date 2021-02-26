@@ -1,3 +1,4 @@
+// 2.2.5
 import java.util.Scanner;
 public class TwoNumber {
 	public static void main(String[] args)
@@ -11,6 +12,9 @@ public class TwoNumber {
         System.out.printf("Sum: %.2f \n",first + second);
         System.out.printf("Difference: %.2f \n", first - second);
         System.out.printf("Product: %.2f \n", first * second);
-        System.out.printf("Quotient: %.2f \n", first/second);
+        if (second == 0) 
+        	System.out.println("Divisor Error! Can't calculate the Quotient.");
+        else
+        	System.out.printf("Quotient: %.2f \n", first/second);
     }
 }
