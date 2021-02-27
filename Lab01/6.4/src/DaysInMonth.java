@@ -8,7 +8,7 @@ public class DaysInMonth {
 		boolean k=false, year=false, month=false;
 		String strMonth, strYear;
 		int YEAR=1000,MONTH=1;
-		ArrayList<String> arrayList = new ArrayList<String>(36);
+		ArrayList<String> arrayList = new ArrayList<String>(48);
 		arrayList.add("1");
 		arrayList.add("2");
 		arrayList.add("3");
@@ -21,6 +21,18 @@ public class DaysInMonth {
 		arrayList.add("10");
 		arrayList.add("11");
 		arrayList.add("12");
+		arrayList.add("January");
+		arrayList.add("February");
+		arrayList.add("March");
+		arrayList.add("April");
+		arrayList.add("May");
+		arrayList.add("June");
+		arrayList.add("July");
+		arrayList.add("August");
+		arrayList.add("September");
+		arrayList.add("October");
+		arrayList.add("November");
+		arrayList.add("December");
 		arrayList.add("Jan");
 		arrayList.add("Feb");
 		arrayList.add("Mar");
@@ -52,11 +64,8 @@ public class DaysInMonth {
 				strMonth = keyboard.nextLine();
 				if (arrayList.contains(strMonth)) {
 					month=true;
-					MONTH = arrayList.indexOf(strMonth)+1;
-					if (MONTH>24)
-						MONTH-=24;
-					if (MONTH>12)
-						MONTH-=12;
+					MONTH = (arrayList.indexOf(strMonth)+1)%12;
+					
 				}
 				}
 			while (!year) {
