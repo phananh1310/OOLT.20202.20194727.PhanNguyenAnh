@@ -5,7 +5,7 @@ public class DaysInMonth {
 	public static void main(String[] args) {
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Input day and year: ");
-		boolean k=false, year=false, month=false;
+		boolean year=false, month=false;
 		String strMonth, strYear;
 		int YEAR=1000,MONTH=1;
 		ArrayList<String> arrayList = new ArrayList<String>(48);
@@ -58,7 +58,7 @@ public class DaysInMonth {
 		arrayList.add("Nov.");
 		arrayList.add("Dec.");
 		int[] CommonYear = {31,28,31,30,31,30,31,31,30,31,30,31};
-		while (!k) {
+		
 			while(!month) {
 				System.out.printf("Input month: ");
 				strMonth = keyboard.nextLine();
@@ -75,8 +75,6 @@ public class DaysInMonth {
 				if (YEAR>=1000)
 					year=true;
 			}
-			k = year||month;
-		}
 		
 		System.out.printf("# of days: ");
 		if (((((YEAR % 4 == 0) && (YEAR % 100 != 0)) || (YEAR % 400 == 0)))&&MONTH==2)
