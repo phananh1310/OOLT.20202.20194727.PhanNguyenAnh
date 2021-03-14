@@ -29,6 +29,7 @@ public class Cart {
 			System.out.println("Your cart is empty!");
 		}
 		else {
+			qtyOrdered -= 1;
 			int index= itemsOrdered.indexOf(disc);
 			if (index==-1) {
 				System.out.println("No DVD found to be removed!");
