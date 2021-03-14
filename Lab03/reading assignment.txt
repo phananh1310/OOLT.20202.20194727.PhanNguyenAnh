@@ -1,0 +1,6 @@
+A property of the object (mostly private) is returned by the accessor method and declared as public.
+Getters are present to provide read access to a field of the internal state. Setters are present to provide write access.
+Even though we prevent internal state from being accessed by the user, we may need to grant partial access to the internal state. 
+For example, we may want to let users read the data of an object (which is private) but prevent them from writing data. -> use getter
+SO, by using getter and setter, we'll have the right to control the user's partial access (to the private field) of an object. 
+
