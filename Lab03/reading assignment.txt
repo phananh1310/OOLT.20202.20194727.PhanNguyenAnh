@@ -3,4 +3,8 @@ Getters are present to provide read access to a field of the internal state. Set
 Even though we prevent internal state from being accessed by the user, we may need to grant partial access to the internal state. 
 For example, we may want to let users read the data of an object (which is private) but prevent them from writing data. -> use getter
 SO, by using getter and setter, we'll have the right to control the user's partial access (to the private field) of an object. 
+Advantages:
+Hiding the internal representation of the property while exposing a property using an alternative representation.
+Getters and setters can allow different access levels - for example the get may be public, but the set could be protected.
+
 
