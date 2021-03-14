@@ -6,5 +6,7 @@ SO, by using getter and setter, we'll have the right to control the user's parti
 Advantages:
 Hiding the internal representation of the property while exposing a property using an alternative representation.
 Getters and setters can allow different access levels - for example the get may be public, but the set could be protected.
+When we don't modify the type of a property of an object, we can hapily call getter/setter of that property without errors. Why? because if not, assume getter/setter variables are local (var = getX()), you'll have to change all the type of that var where you call getX() 
+
 
 
