@@ -2,7 +2,7 @@ package hust.soict.globalict.aims.cart;
 
 import java.util.Comparator;
 
-import hust.soict.globalict.aims.disc.DigitalVideoDisc;
+import hust.soict.globalict.aims.media.DigitalVideoDisc;
 
 public class DVDTitleComparator implements Comparator<DigitalVideoDisc> {
 	 

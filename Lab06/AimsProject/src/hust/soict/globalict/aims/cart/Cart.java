@@ -1,29 +1,14 @@
 package hust.soict.globalict.aims.cart;
 import java.util.*;
-import hust.soict.globalict.aims.disc.DigitalVideoDisc;
+
+import hust.soict.globalict.aims.media.DigitalVideoDisc;
 
 public class Cart {
 	
 	private int qtyOrdered;
 	public static final int MAX_NUMBERS_ORDERED = 20;
-	private ArrayList<DigitalVideoDisc> itemsOrdered = new ArrayList<DigitalVideoDisc> ();
-	
 	public Cart() {
 		super();
-	}
-	
-	public void addDigitalVideoDisc(DigitalVideoDisc disc) {
-		if(qtyOrdered >=MAX_NUMBERS_ORDERED) {
-			System.out.println("Your cart is full!");
-		}
-		else {
-			itemsOrdered.add(disc);
-			qtyOrdered += 1;
-			System.out.println("This DVD has been added to your Cart!");
-			if (qtyOrdered >= 18) {
-				System.out.println("Your cart is almost full!");
-			}
-		}
 	}
 	
 	public void addDigitalVideoDisc(DigitalVideoDisc [] dvdList) {
@@ -37,23 +22,6 @@ public class Cart {
 		this.addDigitalVideoDisc(dvd2);
 	}
 	
-	public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
-		if(qtyOrdered <= 0) {
-			System.out.println("Your cart is empty!");
-		}
-		else {
-			qtyOrdered -= 1;
-			int index= itemsOrdered.indexOf(disc);
-			if (index==-1) {
-				System.out.println("No DVD found to be removed!");
-			}
-			else {
-				System.out.println("DVD '"+disc.getTitle()+"'"+" has been removed from your Cart!");
-				itemsOrdered.remove(index);
-			}
-			
-		}
-	}
 	public DigitalVideoDisc DVD(int rm) { 
 		return itemsOrdered.get(rm); // take the rm th element of the list
 	}

@@ -2,7 +2,7 @@ package hust.soict.globalict.aims;
 
 import java.util.ArrayList;
 
-import hust.soict.globalict.aims.disc.DigitalVideoDisc;
+import hust.soict.globalict.aims.media.DigitalVideoDisc;
 
 public class Store {
 	private ArrayList<DigitalVideoDisc> itemsOrdered = new ArrayList<DigitalVideoDisc> ();

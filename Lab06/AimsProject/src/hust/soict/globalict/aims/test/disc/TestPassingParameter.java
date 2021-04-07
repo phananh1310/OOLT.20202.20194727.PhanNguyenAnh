@@ -1,5 +1,5 @@
 package hust.soict.globalict.aims.test.disc;
-import hust.soict.globalict.aims.disc.DigitalVideoDisc;
+import hust.soict.globalict.aims.media.DigitalVideoDisc;
 
 /*
  After the call of swap(jungleDVD, cinderellaDVD) why does the title of these two

@@ -2,8 +2,7 @@ package hust.soict.globalict.aims.utils;
 
 import java.util.Arrays;
 import hust.soict.globalict.aims.cart.*;
-
-import hust.soict.globalict.aims.disc.DigitalVideoDisc;
+import hust.soict.globalict.aims.media.DigitalVideoDisc;
 /*
 Compare two DVDs (by cost)
 Compare two DVDs (by title)

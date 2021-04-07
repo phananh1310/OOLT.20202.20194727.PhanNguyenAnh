@@ -16,6 +16,13 @@ public class Media {
 		this.id = nbMedia;
 		this.dateAdded = LocalDate.now();
 	}
+	public Media(String title) {
+		super();
+		this.title = title;
+		nbMedia += 1;
+		this.id = nbMedia;
+		this.dateAdded = LocalDate.now();
+	}
 	
 
 	public Media(String title, String category, float cost) {
@@ -62,6 +69,18 @@ public class Media {
 
 	public LocalDate getDateAdded() {
 		return dateAdded;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	public void setCost(float cost) {
+		this.cost = cost;
+	}
+	public void setDateAdded(LocalDate dateAdded) {
+		this.dateAdded = dateAdded;
 	}
 	
 

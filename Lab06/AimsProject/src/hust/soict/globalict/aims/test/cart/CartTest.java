@@ -2,7 +2,7 @@ package hust.soict.globalict.aims.test.cart;
 import java.time.*;
 
 import hust.soict.globalict.aims.cart.Cart;
-import hust.soict.globalict.aims.disc.DigitalVideoDisc;
+import hust.soict.globalict.aims.media.DigitalVideoDisc;
 public class CartTest {
 	public static void main (String[] args) {
 		DigitalVideoDisc dvd1 = new DigitalVideoDisc("Harry P","aaaa","aaaa",1,5.6f);
