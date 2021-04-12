@@ -3,7 +3,7 @@ package hust.soict.globalict.aims;
 import java.time.LocalDate;
 
 import hust.soict.globalict.aims.cart.Cart;
-import hust.soict.globalict.aims.disc.DigitalVideoDisc;
+import hust.soict.globalict.aims.media.DigitalVideoDisc;
 
 public class DiskTest {
 	public static void main (String[] args) {

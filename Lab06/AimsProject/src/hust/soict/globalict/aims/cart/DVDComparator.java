@@ -2,12 +2,13 @@ package hust.soict.globalict.aims.cart;
 
 import java.util.Comparator;
 
-import hust.soict.globalict.aims.disc.DigitalVideoDisc;
+import hust.soict.globalict.aims.media.DigitalVideoDisc;
+import hust.soict.globalict.aims.media.Media;
 
 //compare Title, Cost and Length
-public class DVDComparator implements Comparator<DigitalVideoDisc> {
+public class DVDComparator implements Comparator<Media> {
 	 
-	public int compare(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
+	public int compare(Media dvd1, Media dvd2) {
 		int cmp = dvd1.getTitle().compareTo(dvd2.getTitle());
 		if (cmp ==0) {
 			float f1 = dvd1.getCost(); 

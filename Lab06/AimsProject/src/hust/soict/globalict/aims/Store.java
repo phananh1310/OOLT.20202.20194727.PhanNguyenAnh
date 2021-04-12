@@ -2,52 +2,52 @@ package hust.soict.globalict.aims;
 
 import java.util.ArrayList;
 
-import hust.soict.globalict.aims.disc.DigitalVideoDisc;
+import hust.soict.globalict.aims.media.Media;
 
 public class Store {
-	private ArrayList<DigitalVideoDisc> itemsOrdered = new ArrayList<DigitalVideoDisc> ();
-	private int DVDnumber=0;
+	private ArrayList<Media> itemsInStore = new ArrayList<Media> ();
+	private int Medianumber=0;
 	
 	public Store() {
 		super();
 	}
 	
-	public void addDVDtoStore(DigitalVideoDisc disc) {
+	public void addMediatoStore(Media media) {
 	
-			itemsOrdered.add(disc);
-			DVDnumber += 1;
+			itemsInStore.add(media);
+			Medianumber += 1;
 	}
 	
-	public void addListDVDtoStore(DigitalVideoDisc [] dvdList) {
-		for(DigitalVideoDisc item : dvdList) {
-			this.addDVDtoStore(item);
+	public void addListMediatoStore(Media [] medias) {
+		for(Media item : medias) {
+			this.addMediatoStore(item);
 		}
 	}
 	
-	public void removeDVDfromStore(DigitalVideoDisc disc) {
-		if(DVDnumber <= 0) {
+	public void removeDVDfromStore(Media media) {
+		if(Medianumber <= 0) {
 			System.out.println("Store is empty!");
 		}
 		else {
-			DVDnumber -= 1;
-			int index= itemsOrdered.indexOf(disc);
+			Medianumber -= 1;
+			int index= itemsInStore.indexOf(media);
 			if (index==-1) {
 				System.out.println("No DVD found to be removed from Store!");
 			}
 			else {
-				itemsOrdered.remove(index);
+				itemsInStore.remove(index);
 			}
 			
 		}
 	}
 	public void displayStore() {
 		int i=1;
-		if (DVDnumber >0) {
+		if (Medianumber >0) {
 			System.out.println("**********************STORE******************************************************************************************************");
-			for(DigitalVideoDisc item : itemsOrdered) {
+			for(Media item : itemsInStore) {
 				System.out.print(i+". ");
 				i++;
-				System.out.println("DVD - "+item.getTitle()+" (id = "+item.getId()+")");
+				System.out.println("Media - "+item.getTitle()+" (id = "+item.getId()+")");
 			}
 			System.out.println("****************************************************************************************************************************");
 		
@@ -56,8 +56,8 @@ public class Store {
 			System.out.println("Store is empty!");
 		}
 	}
-	public DigitalVideoDisc searchStorebyID(int ID) {
-		for(DigitalVideoDisc item : itemsOrdered) {
+	public Media searchStorebyID(int ID) {
+		for(Media item : itemsInStore) {
 			if (item.getId()==ID) return item;
 		}
 		return null;// not found
@@ -89,10 +89,11 @@ public class Store {
 	System.out.println("1. Filter DVDs in cart");
 	System.out.println("2. Sort DVDs in cart");
 	System.out.println("3. Remove DVD from cart");
-	System.out.println("4. Place order");
-	System.out.println("5. Exit");
+	System.out.println("4. Get a lucky item from cart");
+	System.out.println("5. Place order");
+	System.out.println("6. Exit");
 	System.out.println("--------------------------------");
-	System.out.print("Please choose a number: 1-2-3-4-5: ");
+	System.out.print("Please choose a number: 1-2-3-4-5-6: ");
 	}
 }
 
