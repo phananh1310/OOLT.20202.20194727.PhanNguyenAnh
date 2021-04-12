@@ -120,6 +120,10 @@ public class Cart {
 			if (count==0) System.out.println("Not found");
 			else System.out.println("Found "+count+" DVD");
 		}
+
+
+	
+
 	public void getALuckyItem() {
         int rand = (int)(Math.random() * itemsOrdered.size()) + 0;
         itemsOrdered.get(rand).setCost(0);
@@ -127,6 +131,9 @@ public class Cart {
 	public int getQtyOrdered() {
 		return itemsOrdered.size();
 	}
+
+
+
 
 		
 	}
