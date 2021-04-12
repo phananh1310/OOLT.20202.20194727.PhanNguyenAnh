@@ -242,7 +242,7 @@ public class Aims {
 		    			     break;
 
 		    			     case 4:
-		    			    //To-do free item
+		    			    cart.getALuckyItem();
 		    		  
 		    				break;
 		    			     case 5:
