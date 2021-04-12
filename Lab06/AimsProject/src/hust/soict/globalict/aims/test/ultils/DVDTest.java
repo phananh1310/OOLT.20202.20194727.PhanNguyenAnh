@@ -31,10 +31,7 @@ public class DVDTest {
 		for (int i=0;i< sorted.length;i++) {
 			sorted[i].display();
 		}
-		List<String> authors = new ArrayList<String>();	
-		Media b1 = new Book("abc","bcd",5.2f,authors );
-		b1.addAuthor("Phan ANh");
-		b1.display();
+	
 		
 	}
 }
