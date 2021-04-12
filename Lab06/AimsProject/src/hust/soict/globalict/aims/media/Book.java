@@ -42,7 +42,7 @@ public class Book extends Media {
 			System.out.println("This author is not in the list!");
 		}
 	}
-	public void displayBook() {
+	public void display() {
 
 		System.out.println("Book - " + this.getTitle()+" - " + this.getCategory()+ ": "+ this.getCost()+"$"+"(id="+this.getId()+")"+"(dateAdded="+this.getDateAdded()+")");
 		System.out.print("Authors: ");

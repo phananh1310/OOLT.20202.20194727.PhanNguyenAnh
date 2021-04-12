@@ -55,7 +55,7 @@ public class DigitalVideoDisc extends Media {
 	
 // I use this instead of getDetail(). I think return type of getDetail is String. Change all object information in that dvd into string and then return
 // I also print id and date for detail
-	public void displayDVD() {
+	public void display() {
 		System.out.println("DVD - " + this.getTitle()+" - " + this.getCategory()+" - "+ this.getDirector()+" - " + this.getLength()+": "+ this.getCost()+"$"+"(id="+this.getId()+")"+"(dateAdded="+this.getDateAdded()+")");
 	}
 

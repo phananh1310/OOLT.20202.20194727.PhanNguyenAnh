@@ -45,6 +45,10 @@ public class Media {
 		nbMedia += 1;
 		this.id = nbMedia;
 	}
+	
+	public void displayMedia() {
+		
+	}
 
 
 	public static int getNbMedia() {
@@ -81,6 +85,18 @@ public class Media {
 	}
 	public void setDateAdded(LocalDate dateAdded) {
 		this.dateAdded = dateAdded;
+	}
+	public void display() {		
+	}
+	public boolean search(String title2) {
+		return false;
+	}
+	public int getLength() {
+		return 0;
+	}
+	public void addAuthor(String string) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 
