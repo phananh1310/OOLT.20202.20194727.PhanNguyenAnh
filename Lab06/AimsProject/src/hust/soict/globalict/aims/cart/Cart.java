@@ -121,9 +121,6 @@ public class Cart {
 			else System.out.println("Found "+count+" DVD");
 		}
 
-	public int getQtyOrdered() {
-		return itemsOrdered.size();
-	}
 		
 	}
 	
