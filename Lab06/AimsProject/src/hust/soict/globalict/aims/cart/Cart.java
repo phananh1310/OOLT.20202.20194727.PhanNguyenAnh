@@ -125,6 +125,9 @@ public class Cart {
         int rand = (int)(Math.random() * (itemsOrdered.size()+1)) + 0;
         itemsOrdered.get(rand).setCost(0);
     }
+	public int getQtyOrdered() {
+		return itemsOrdered.size();
+	}
 		
 	}
 	
