@@ -94,9 +94,9 @@ public class Media {
 	public int getLength() {
 		return 0;
 	}
-	public void addAuthor(String string) {
-		// TODO Auto-generated method stub
-		
+	public void addAuthor(String string) {		
+	}
+	public void removeAuthor(String string) {
 	}
 	
 
