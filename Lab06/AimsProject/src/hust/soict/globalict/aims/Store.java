@@ -2,11 +2,10 @@ package hust.soict.globalict.aims;
 
 import java.util.ArrayList;
 
-import hust.soict.globalict.aims.media.DigitalVideoDisc;
 import hust.soict.globalict.aims.media.Media;
 
 public class Store {
-	private ArrayList<Media> itemsOrdered = new ArrayList<Media> ();
+	private ArrayList<Media> itemsInStore = new ArrayList<Media> ();
 	private int Medianumber=0;
 	
 	public Store() {
@@ -15,7 +14,7 @@ public class Store {
 	
 	public void addMediatoStore(Media media) {
 	
-			itemsOrdered.add(media);
+			itemsInStore.add(media);
 			Medianumber += 1;
 	}
 	
@@ -31,12 +30,12 @@ public class Store {
 		}
 		else {
 			Medianumber -= 1;
-			int index= itemsOrdered.indexOf(media);
+			int index= itemsInStore.indexOf(media);
 			if (index==-1) {
 				System.out.println("No DVD found to be removed from Store!");
 			}
 			else {
-				itemsOrdered.remove(index);
+				itemsInStore.remove(index);
 			}
 			
 		}
@@ -45,7 +44,7 @@ public class Store {
 		int i=1;
 		if (Medianumber >0) {
 			System.out.println("**********************STORE******************************************************************************************************");
-			for(Media item : itemsOrdered) {
+			for(Media item : itemsInStore) {
 				System.out.print(i+". ");
 				i++;
 				System.out.println("Media - "+item.getTitle()+" (id = "+item.getId()+")");
@@ -58,7 +57,7 @@ public class Store {
 		}
 	}
 	public Media searchStorebyID(int ID) {
-		for(Media item : itemsOrdered) {
+		for(Media item : itemsInStore) {
 			if (item.getId()==ID) return item;
 		}
 		return null;// not found
@@ -90,10 +89,13 @@ public class Store {
 	System.out.println("1. Filter DVDs in cart");
 	System.out.println("2. Sort DVDs in cart");
 	System.out.println("3. Remove DVD from cart");
-	System.out.println("4. Place order");
-	System.out.println("5. Exit");
+	System.out.println("4. Get a lucky item from cart");
+
+	System.out.println("5. Place order");
+	
+	System.out.println("6. Exit");
 	System.out.println("--------------------------------");
-	System.out.print("Please choose a number: 1-2-3-4-5: ");
+	System.out.print("Please choose a number: 1-2-3-4-5-6: ");
 	}
 }
 
