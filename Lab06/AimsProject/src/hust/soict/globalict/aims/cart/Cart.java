@@ -122,7 +122,7 @@ public class Cart {
 		}
 	
 	public void getALuckyItem() {
-        int rand = (int)(Math.random() * (itemsOrdered.size()+1)) + 0;
+        int rand = (int)(Math.random() * itemsOrdered.size()) + 0;
         itemsOrdered.get(rand).setCost(0);
     }
 	public int getQtyOrdered() {
