@@ -2,20 +2,20 @@ package hust.soict.globalict.aims;
 import java.util.Scanner;
 
 import hust.soict.globalict.aims.cart.Cart;
-import hust.soict.globalict.aims.media.DigitalVideoDisc;
+import hust.soict.globalict.aims.media.*;
 
 public class Aims {
 
 	public static void main(String[] args) {
 		Store store = new Store();
 		//Add video to store
-		DigitalVideoDisc dvd1 = new DigitalVideoDisc("Harry P","aaaa","aaaa",1,5.6f);
-		DigitalVideoDisc dvd2 = new DigitalVideoDisc("H Potter ","bbbb","aaaa",1,5.3f);
-		DigitalVideoDisc dvd3 = new DigitalVideoDisc("Your NameHary","cccc","aaaa",2,5.3f);
-		DigitalVideoDisc dvd4 = new DigitalVideoDisc("Harry P","dddd","aaaa",1,7.1f);
-		DigitalVideoDisc dvd5 = new DigitalVideoDisc("EEEE","eeee","aaaa",1,3.3f);
+		Media dvd1 = new DigitalVideoDisc("Harry P","aaaa","aaaa",1,5.6f);
+		Media dvd2 = new DigitalVideoDisc("H Potter ","bbbb","aaaa",1,5.3f);
+		Media dvd3 = new DigitalVideoDisc("Your NameHary","cccc","aaaa",2,5.3f);
+		Media dvd4 = new DigitalVideoDisc("Harry P","dddd","aaaa",1,7.1f);
+		Media dvd5 = new DigitalVideoDisc("EEEE","eeee","aaaa",1,3.3f);
 		
-		store.addListDVDtoStore(new DigitalVideoDisc [] {dvd1,dvd2,dvd3,dvd4,dvd5});
+		store.addListMediatoStore(new Media [] {dvd1,dvd2,dvd3,dvd4,dvd5});
 		
 		Cart cart = new Cart();
 		@SuppressWarnings("resource")
@@ -26,7 +26,7 @@ public class Aims {
 		int YesNo; // y=1, n=0
 		//searching variable
 		int ID,temp;
-		DigitalVideoDisc DVD;
+		Media media;
 		
 		while (choice != 4) {
 		Store.ShowMenu();
@@ -46,22 +46,22 @@ public class Aims {
 		    			switch (choice2)
 		    			{
 		    			     case 1:
-		    			    	System.out.print("Enter ID of DVD you want to see: ");
+		    			    	System.out.print("Enter ID of Media you want to see: ");
 		    			    	ID = keyboard.nextInt();
 				    			tmp = keyboard.nextLine(); 
-				    			DVD = store.searchStorebyID(ID);
-				    			if (DVD == null) {
-				    				System.out.println("No DVD found!");
+				    			media = store.searchStorebyID(ID);
+				    			if (media == null) {
+				    				System.out.println("No Media found!");
 				    			}
 				    			else {
 				    				System.out.println("DVD detail: ");
-				    				DVD.displayDVD();
+				    				media.display();
 				    				while (true) {
 				    				System.out.print("Want to add to your Cart? (Choose number) (1.yes/0.no)");
 				    				YesNo = keyboard.nextInt();
 					    			tmp = keyboard.nextLine();
 					    			if (YesNo==1) {
-					    				cart.addDigitalVideoDisc(DVD);
+					    				cart.addMedia(media);
 					    			break;
 					    			}
 					    			else if (YesNo==0)
@@ -73,7 +73,7 @@ public class Aims {
 
 		    			     case 2:
 		    			    	 while (true) {
-		    			    	 System.out.print("Enter ID of DVD you want to add: ");
+		    			    	 System.out.print("Enter ID of Media you want to add: ");
 			    			    	ID = keyboard.nextInt();
 					    			tmp = keyboard.nextLine();
 					    		 if (ID>0) break;
@@ -81,12 +81,12 @@ public class Aims {
 					    			 System.out.println("ID must > 0!");
 					    		 }
 		    			    	 }
-					    			DVD = store.searchStorebyID(ID);
-					    			if (DVD == null) {
+					    			media = store.searchStorebyID(ID);
+					    			if (media == null) {
 					    				System.out.println("No DVD found!");
 					    			}
 					    			else {
-						    				cart.addDigitalVideoDisc(DVD);
+						    				cart.addMedia(media);
 						    				System.out.println("Number of DVD in cart: "+cart.getQtyOrdered());
 					    				}
 					    			
@@ -141,8 +141,8 @@ public class Aims {
 		    			    		 System.out.printf("Cost must > 0! Try again: ");
 		    			    		 cost = (float) keyboard.nextDouble();
 		    			    	 }
-		    			    	 DigitalVideoDisc dvd = new DigitalVideoDisc(title,category,director,length,cost);
-		    			    	 store.addDVDtoStore(dvd);
+		    			    	 Media dvd = new DigitalVideoDisc(title,category,director,length,cost);
+		    			    	 store.addMediatoStore(dvd);
 		    			     break;	 
 		    			     
 
@@ -167,7 +167,7 @@ public class Aims {
 		     
 		     case 3:
 		    	 choice3=0;
-		    	 while (choice3 != 5) {
+		    	 while (choice3 != 6) {
 		    			Store.cartMenu();
 		    			choice3 = keyboard.nextInt();
 		    			tmp = keyboard.nextLine(); 
@@ -236,21 +236,24 @@ public class Aims {
 						    		 }
 			    			    	 }
 		    			    	 
-		    			    	 cart.removeDigitalVideoDisc(cart.searchCartbyID(ID));
+		    			    	 cart.removeMedia(ID);
 		    			    	 }
 		    			    
 		    			     break;
 
 		    			     case 4:
-		    			    	 if (cart.getQtyOrdered()>0)
-		    			    	 System.out.println("An order is created!");
-		    			    	 else 
-			    			    System.out.println("An order is not created! (0 DVD in cart)");
-
-		    			    	 cart = new Cart();
+		    			    //To-do free item
 		    		  
 		    				break;
 		    			     case 5:
+		    			    	 if (cart.getQtyOrdered()>0)
+			    			    	 System.out.println("An order is created!");
+			    			    	 else 
+				    			    System.out.println("An order is not created! (0 DVD in cart)");
+
+			    			    	 cart = new Cart();
+		    			    	 break;
+		    			     case 6:
 		    			    	 break;
 
 		    					 
