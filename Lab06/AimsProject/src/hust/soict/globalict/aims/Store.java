@@ -89,10 +89,13 @@ public class Store {
 	System.out.println("1. Filter DVDs in cart");
 	System.out.println("2. Sort DVDs in cart");
 	System.out.println("3. Remove DVD from cart");
-	System.out.println("4. Place order");
-	System.out.println("5. Exit");
+	System.out.println("4. Get a lucky item from cart");
+
+	System.out.println("5. Place order");
+	
+	System.out.println("6. Exit");
 	System.out.println("--------------------------------");
-	System.out.print("Please choose a number: 1-2-3-4-5: ");
+	System.out.print("Please choose a number: 1-2-3-4-5-6: ");
 	}
 }
 
