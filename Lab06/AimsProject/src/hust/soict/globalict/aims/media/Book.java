@@ -51,6 +51,17 @@ public class Book extends Media {
 		}
 		System.out.println();
 	}
+	public boolean search(String title) {
+		String[] arr = title.split(" ");    
+
+		for ( String word : arr) {
+			if(this.getTitle().toLowerCase().contains(word.toLowerCase())) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
 	
 	
 

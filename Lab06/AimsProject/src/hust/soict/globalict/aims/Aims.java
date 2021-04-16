@@ -1,4 +1,6 @@
 package hust.soict.globalict.aims;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import hust.soict.globalict.aims.cart.Cart;
@@ -14,9 +16,12 @@ public class Aims {
 		Media dvd3 = new DigitalVideoDisc("Your NameHary","cccc","aaaa",2,5.3f);
 		Media dvd4 = new DigitalVideoDisc("Harry P","dddd","aaaa",1,7.1f);
 		Media dvd5 = new DigitalVideoDisc("EEEE","eeee","aaaa",1,3.3f);
+		List<String> authors = new ArrayList<String>();
+		Media book = new Book("d","d",3,authors);
+		book.addAuthor("Phan Anh");
 		
 		store.addListMediatoStore(new Media [] {dvd1,dvd2,dvd3,dvd4,dvd5});
-		
+		store.addMediatoStore(book);
 		Cart cart = new Cart();
 		@SuppressWarnings("resource")
 		// some variables
@@ -174,6 +179,7 @@ public class Aims {
 		    			switch (choice3)
 		    			{
 		    			     case 1:
+		    			    	 choice5=0;
 		    			    	 while (choice5 != 3) {
 		    			    		  	System.out.println("1. Filter by ID");
 		    			    			System.out.println("2. Filter by Title");
