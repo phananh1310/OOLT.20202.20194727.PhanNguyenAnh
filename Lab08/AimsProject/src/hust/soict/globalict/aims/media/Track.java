@@ -29,15 +29,23 @@ public class Track implements Playable {
 		return length;
 	}
 
-	@Override
 		public void play() {
 			System.out.println("Playing track: "+ this.getTitle());
 			System.out.println("track Length: "+ this.getLength());
 	
 	}
+	
 	public void display() {
 		System.out.println("	track Title: "+ this.getTitle());
 		System.out.println("	track Length: "+ this.getLength());
+	}
+	
+	@Override 
+	public boolean equals(Object track) {
+		if (track instanceof Track) {
+			return (this.title==((Track)track).title&&this.length==((Track)track).length);
+		}
+		else return false;
 	}
 	
 }

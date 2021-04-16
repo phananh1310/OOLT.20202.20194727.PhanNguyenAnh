@@ -50,7 +50,6 @@ public abstract class Media {
 		
 	}
 
-
 	public static int getNbMedia() {
 		return nbMedia;
 	}
@@ -96,6 +95,14 @@ public abstract class Media {
 	public void addTrack(Track track) {
 		
 	}
+	@Override
+	public boolean equals(Object media) {
+		if (media instanceof Media) {
+		return (this.id==((Media)media).id);
+		}
+		else return false;
+	}
+	
 
 
 }
