@@ -99,6 +99,9 @@ public abstract class Media implements Comparable<Media> {
 	public void addTrack(Track track) {
 		
 	}
+	public void setContent(String string) {
+		
+	}
 	@Override
 	public boolean equals(Object media) {
 		if (media instanceof Media) {

@@ -1,11 +1,42 @@
 package hust.soict.globalict.aims.media;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Book extends Media {
 
 	private List<String> authors = new ArrayList<String>();
+	private String content;
+	private List<String> contentTokens = new ArrayList<String>();
+	private Map<String, Integer> wordFrequency = new TreeMap<String,Integer>();
+	
+	public void processContent() {
+		// regex = " " 
+		String[] arr = content.split(" ");
+		
+		for (String s: arr) {
+			while (!contentTokens.contains(s)) {
+				contentTokens.add(s);
+			}
+			if (wordFrequency.containsKey(s)) {
+				wordFrequency.put(s, wordFrequency.get(s)+1);
+			}
+			else {
+				wordFrequency.put(s,1);
+			}
+		}
+		Collections.sort(contentTokens);
+		
+		
+
+	}
+	public void setContent(String newContent) {
+		this.content = newContent;
+		this.processContent();
+	}
 	
 	public Book() {
 		super();
@@ -42,6 +73,7 @@ public class Book extends Media {
 			System.out.println("This author is not in the list!");
 		}
 	}
+	// display with content
 	public void display() {
 
 		System.out.println("Book - " + this.getTitle()+" - " + this.getCategory()+ ": "+ this.getCost()+"$"+"(id="+this.getId()+")"+"(dateAdded="+this.getDateAdded()+")");
@@ -50,6 +82,10 @@ public class Book extends Media {
 			System.out.print(author+" | ");
 		}
 		System.out.println();
+		System.out.println("Content: "+content);
+		System.out.println("Content Tokens: "+contentTokens);
+		System.out.println("Word Frequency: "+ wordFrequency);
+
 	}
 	public boolean search(String title) {
 		String[] arr = title.split(" ");    
