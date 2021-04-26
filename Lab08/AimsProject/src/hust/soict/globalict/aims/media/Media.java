@@ -98,7 +98,7 @@ public abstract class Media {
 	@Override
 	public boolean equals(Object media) {
 		if (media instanceof Media) {
-		return (this.id==((Media)media).id);
+		return (this.id==((Media)media).getId());
 		}
 		else return false;
 	}
