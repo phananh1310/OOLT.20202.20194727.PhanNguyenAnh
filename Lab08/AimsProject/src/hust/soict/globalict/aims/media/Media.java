@@ -2,7 +2,7 @@ package hust.soict.globalict.aims.media;
 
 import java.time.LocalDate;
 
-public abstract class Media {
+public abstract class Media implements Comparable<Media> {
 	private static int nbMedia = 0;
 	private int id;
 	private String title;
@@ -101,6 +101,15 @@ public abstract class Media {
 		return (this.id==((Media)media).getId());
 		}
 		else return false;
+	}
+	 
+	@Override
+	public int compareTo(Media o) {
+		int r=this.getTitle().compareTo(o.getTitle());
+		if (r==0) 
+			return this.getCategory().compareTo(o.getCategory());
+		else 
+			return r;
 	}
 	
 

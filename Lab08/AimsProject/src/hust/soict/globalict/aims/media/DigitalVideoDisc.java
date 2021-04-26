@@ -11,7 +11,7 @@ import java.time.LocalDate;
  
  */
 
-public class DigitalVideoDisc extends Disc implements Playable,Comparable<DigitalVideoDisc> {
+public class DigitalVideoDisc extends Disc implements Playable {
 	
 	private LocalDate dateAdded; 
 
@@ -71,15 +71,6 @@ public class DigitalVideoDisc extends Disc implements Playable,Comparable<Digita
 		
 	}
 
-	@Override
-	public int compareTo(DigitalVideoDisc o) {
-		int r=this.getTitle().compareTo(o.getTitle());
-		if (r==0) 
-			return this.getCategory().compareTo(o.getCategory());
-		else 
-			return r;
-	}
-	
 	
 	
 }

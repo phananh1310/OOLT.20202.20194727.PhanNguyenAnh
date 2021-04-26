@@ -3,7 +3,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 
-public class CompactDisc extends Disc implements Playable,Comparable<CompactDisc> {
+public class CompactDisc extends Disc implements Playable {
 	private String artist;
 	private ArrayList<Track> tracks = new ArrayList<Track>();
 	
@@ -73,15 +73,6 @@ public class CompactDisc extends Disc implements Playable,Comparable<CompactDisc
 		}
 	}
 
-	@Override
-	public int compareTo(CompactDisc o) {
-		int r=this.getTitle().compareTo(o.getTitle());
-		if (r==0) 
-			return this.getCategory().compareTo(o.getCategory());
-		else 
-			return r;
-	}
-	
 	
 	
 	
