@@ -90,6 +90,17 @@ public class Cart {
 		this.displayCart();
 	}
 	
+	// another way to sort using comparator of Media
+	public void sortCartByTitleCost() {
+		Collections.sort(this.itemsOrdered, Media.COMPARE_BY_TITLE_COST);
+		this.displayCart();
+	}
+	public void sortCartByCostTitle() {
+		Collections.sort(this.itemsOrdered, Media.COMPARE_BY_COST_TITLE);
+		this.displayCart();
+	}
+	
+	
 	public Media searchCartbyID(int ID) {
 		for(Media item : itemsOrdered) {
 			if (item.getId()==ID) return item;
