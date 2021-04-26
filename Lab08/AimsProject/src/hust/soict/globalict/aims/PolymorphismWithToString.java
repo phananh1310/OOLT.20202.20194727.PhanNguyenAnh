@@ -1,5 +1,14 @@
 package hust.soict.globalict.aims;
 
+/*
+ * I use display() instead of toString()
+ * For each Media, depends on what type of it is (CD,DVD,Book) It will display its information
+ * Because in each (CD/DVD/Book) class have a display() method, when the Media comes to DVD, it will use the
+ * display() method of DVD,.... this is overriding 
+ * There are two types of polymorphism in Java. Compile time polymorphism (overloading) and runtime polymorphism (overriding)
+ * In here we use overriding, at previous lab we use overloading
+ * When using overriding, the parameters must be the same (not like overloading)
+ */
 import java.util.ArrayList;
 import java.util.List;
 
