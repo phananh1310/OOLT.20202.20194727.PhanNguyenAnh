@@ -329,8 +329,8 @@ public class Aims {
 	    			    		 System.out.print("Please choose a number: 1-2:");
 	    			    			temp = keyboard.nextInt();
 	    			    			tmp = keyboard.nextLine();
-	    			    		if (temp==2) cart.sortCart();
-	    			    		else if (temp==1) cart.sortCartbyCost();;
+	    			    		if (temp==2) cart.sortCartByTitleCost();
+	    			    		else if (temp==1) cart.sortCartByCostTitle();;
 		    			     break;
 		    			     
 		    			     
