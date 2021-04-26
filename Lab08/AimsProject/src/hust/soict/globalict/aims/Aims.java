@@ -19,6 +19,7 @@ public class Aims {
 		List<String> authors = new ArrayList<String>();
 		Media book1 = new Book("Phan Anh","abc", 1.6f,authors);
 		book1.addAuthor("Phan Anh");
+		book1.setContent("d d as  l asds ahs as ue  da ad");
 		
 		store.addListMediatoStore(new Media [] {dvd1,dvd2,dvd3,dvd4,dvd5});
 		store.addMediatoStore(book1);
