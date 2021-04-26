@@ -3,7 +3,7 @@ package hust.soict.globalict.aims.media;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Book extends Media {
+public class Book extends Media implements Comparable<Book> {
 
 	private List<String> authors = new ArrayList<String>();
 	
@@ -61,6 +61,15 @@ public class Book extends Media {
 		}
 		
 		return false;
+	}
+
+	@Override
+	public int compareTo(Book o) {
+		int r=this.getTitle().compareTo(o.getTitle());
+		if (r==0) 
+			return this.getCategory().compareTo(o.getCategory());
+		else 
+			return r;
 	}
 	
 	
