@@ -12,6 +12,10 @@ public class Store {
 		super();
 	}
 	
+	public ArrayList<Media> getItemsInStore(){
+		return itemsInStore;
+	}
+	
 	public void addMediatoStore(Media media) {
 	
 			itemsInStore.add(media);

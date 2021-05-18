@@ -34,6 +34,13 @@ public class Track implements Playable,Comparable<Track> {
 			System.out.println("track Length: "+ this.getLength());
 	
 	}
+		public String playToString() {
+			String str = "";
+			str+= "Playing track: "+ this.getTitle()+"\n";
+			str+="track Length: "+ this.getLength()+"\n";
+			return str;
+	
+	}
 	
 	public void display() {
 		System.out.println("	track Title: "+ this.getTitle());

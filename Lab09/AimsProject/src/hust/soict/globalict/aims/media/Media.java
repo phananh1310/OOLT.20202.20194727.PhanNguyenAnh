@@ -93,6 +93,12 @@ public abstract class Media implements Comparable<Media> {
 	public void play() {
 		
 	}
+	public String toString() {
+		return null;
+	}
+	public String playToString() {
+		return null;
+	}
 	public void setCost(float x){
 		this.cost=x;
 	}

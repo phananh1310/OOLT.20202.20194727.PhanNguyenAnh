@@ -46,6 +46,9 @@ public class Book extends Media {
 		super(title,category,cost);
 		this.authors=authors;
 	}
+	public Book(String title, String category, float cost) {
+		super(title,category,cost);
+	}
 	
 	public List<String> getAuthors() {
 		return authors;
@@ -86,6 +89,20 @@ public class Book extends Media {
 		System.out.println("Content Tokens: "+contentTokens);
 		System.out.println("Word Frequency: "+ wordFrequency);
 
+	}
+	
+	public String toString() {
+		String str = "Book - " + this.getTitle()+" - " + this.getCategory()+ ": "+ this.getCost()+"$"+"(id="+this.getId()+")"+"(dateAdded="+this.getDateAdded()+")\n";
+		
+		str += "Authors: ";
+		for (String author: authors) {
+			str+= author+" | ";
+		}
+		str+="\n";
+		str+= "Content: "+content+"\n";
+		str+= "Content Tokens: "+contentTokens+"\n";
+		str+= "Word Frequency: "+ wordFrequency+"\n";
+		return str;
 	}
 	public boolean search(String title) {
 		String[] arr = title.split(" ");    
