@@ -116,8 +116,20 @@ public class StoreScreen extends JFrame{
 				public void actionPerformed(ActionEvent e) {
 					Media media = panel.make();
 					store.addMediatoStore(media);
-					panel.add(new JLabel("Media " + panel.getTfTitle().getText() +" added!"));
-					media.display();
+					
+					JFrame f = new JFrame();
+					JDialog dialog = new JDialog(f,"Media " + panel.getTfTitle().getText() + " added. Detail ");
+					
+					dialog.add(new JTextArea(media.toString()));
+					if (media instanceof DigitalVideoDisc)
+						dialog.setSize(400, 100);
+					else if (media instanceof Book)
+						dialog.setSize(media.toString().length()*2,150);
+					else if (media instanceof CompactDisc)
+						dialog.setSize(media.toString().length(), 600);
+					dialog.setAlwaysOnTop(true);
+					dialog.setVisible(true);
+				
 					setVisible(true);
 				}
 			});
