@@ -3,6 +3,7 @@ package hust.soict.globalict.aims.screen;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -28,7 +29,20 @@ public class MediaStore extends JPanel {
 		JPanel container = new JPanel();
 		container.setLayout(new FlowLayout(FlowLayout.CENTER));
 		
-		container.add(new JButton("Add to cart"));
+		JButton addCart =new JButton("Add to cart");
+		container.add(addCart);
+		addCart.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// add to cart here
+				Frame f = new JFrame("Message");
+				f.add(new JLabel("Cart added!"));
+				f.setSize(350,100);
+				f.setVisible(true);
+			}
+			
+		});
+		
 		if (media instanceof Playable) {
 			JButton Play = new JButton("Play");
 			container.add(Play);
