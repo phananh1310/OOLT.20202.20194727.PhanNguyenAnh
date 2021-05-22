@@ -8,12 +8,26 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.globalict.javafx.PainterController">
    <left>
-      <VBox maxHeight="1.7976931348623157E308" spacing="8.0" BorderPane.alignment="CENTER">
+      <VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="471.0" prefWidth="95.0" spacing="8.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets right="8.0" />
          </BorderPane.margin>
          <children>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clearButtonPressed" text="Clear" />
+            <TitledPane animated="false" text="Tools">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="32.0">
+                     <children>
+                        <RadioButton layoutY="14.0" mnemonicParsing="false" onAction="#erase" text="Erase">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="Tools" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton layoutY="69.0" mnemonicParsing="false" onAction="#draw" text="Pen" toggleGroup="$Tools" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </TitledPane>
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clearButtonPressed" prefWidth="95.0" text="Clear" />
          </children>
       </VBox>
    </left>
@@ -21,6 +35,6 @@
       <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
    </padding>
    <center>
-      <Pane fx:id="drawingAreaPane" onMouseDragged="#drawingAreaMouseDragged" style="-fx-background-color: white;" BorderPane.alignment="CENTER" />
+      <Pane fx:id="drawingAreaPane" onMouseDragged="#drawingAreaMouseDragged" onMousePressed="#drawingAreaMouseDragged" style="-fx-background-color: white;" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
