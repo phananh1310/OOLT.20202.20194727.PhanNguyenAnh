@@ -46,6 +46,13 @@ public class Track implements Playable,Comparable<Track> {
 		System.out.println("	track Title: "+ this.getTitle());
 		System.out.println("	track Length: "+ this.getLength());
 	}
+	public String toString() {
+		String str="";
+		str+= "	track Title: "+ this.getTitle()+"\n";
+		str+= "	track Length: "+ this.getLength()+"\n";
+		return str;
+	}
+	
 	
 	@Override 
 	public boolean equals(Object obj) {
