@@ -1,6 +1,13 @@
 package hust.soict.globalict.aims.screen;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import java.awt.*;
 
 import hust.soict.globalict.aims.cart.Cart;
 import hust.soict.globalict.aims.media.Media;
@@ -13,6 +20,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -22,6 +31,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class CartScreenController {
 	private Cart cart;
+	 @FXML
+	    private MenuItem addBookMenuItem;
 	
 	@FXML
     private ToggleGroup filterCategory;
@@ -59,6 +70,11 @@ public class CartScreenController {
     
     @FXML
     private Button placeOrderbtn;
+    @FXML
+    private MenuItem viewStoreMenuChoice;
+
+    @FXML
+    private MenuItem viewCartMenuChoice;
 
     public CartScreenController(Cart cart) {
 		this.cart=cart;
@@ -151,5 +167,38 @@ public class CartScreenController {
 		this.cart = new Cart();
 		updateTotalCost();
 		tblMedia.setItems(cart.getItemsOrdered());
+    }
+	@FXML
+    void viewStoreMenuChoiceClicked(ActionEvent event) {
+		WRAP.storeScreen = new StoreScreen(WRAP.store);
+    }
+
+    @FXML
+    void viewCartMenuChoiceClicked(ActionEvent event) {
+// tro ve man hinh chinh cua this Screen
+    }
+    
+    @FXML
+    void addBookMenuItemClicked(ActionEvent event) {
+		
+    }
+
+    @FXML
+    void addCDMenuItemClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void addDVDMenuItemClicked(ActionEvent event) {
+
+    }
+    @FXML
+    void btnPlayClicked(ActionEvent event) {
+    	JFrame f = new JFrame();
+		JDialog dialog = new JDialog(f,"Play");
+		dialog.setSize(300, 200);
+		Media media = tblMedia.getSelectionModel().getSelectedItem();
+		dialog.add(new JTextArea(media.playToString()));
+		dialog.setVisible(true);
     }
 }

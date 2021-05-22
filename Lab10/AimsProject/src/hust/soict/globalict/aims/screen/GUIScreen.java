@@ -5,6 +5,8 @@ import java.awt.Container;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JPanel;
+
 import hust.soict.globalict.aims.Store;
 import hust.soict.globalict.aims.cart.Cart;
 import hust.soict.globalict.aims.media.Book;
@@ -44,6 +46,7 @@ public class GUIScreen {
 
 		//wrap2store mean wrap.storescreen.setVisible = true, wrap.cartscreen.setvisivle = false
 		// to see FRAME use setVisible!!!!
+		
 		WRAP.wrap2store(store, cart);
 		
 		

@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <VBox prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -17,20 +16,20 @@
               <menus>
                 <Menu mnemonicParsing="false" text="Options">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Add Book" />
-                        <MenuItem mnemonicParsing="false" text="Add CD" />
-                        <MenuItem mnemonicParsing="false" text="Add DVD" />
+                    <MenuItem fx:id="addBookMenuItem" mnemonicParsing="false" onAction="#addBookMenuItemClicked" text="Add Book" />
+                        <MenuItem mnemonicParsing="false" onAction="#addCDMenuItemClicked" text="Add CD" />
+                        <MenuItem mnemonicParsing="false" onAction="#addDVDMenuItemClicked" text="Add DVD" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="View Store">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
-                  </items>
+                     <items>
+                        <MenuItem fx:id="viewStoreMenuChoice" mnemonicParsing="false" onAction="#viewStoreMenuChoiceClicked" text="View Store" />
+                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="View Cart">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
-                  </items>
+                     <items>
+                        <MenuItem fx:id="viewCartMenuChoice" mnemonicParsing="false" onAction="#viewCartMenuChoiceClicked" text="View Cart" />
+                     </items>
                 </Menu>
               </menus>
             </MenuBar>
@@ -75,7 +74,7 @@
             </TableView>
             <HBox>
                <children>
-                  <Button fx:id="btnPlay" mnemonicParsing="false" text="Play">
+                  <Button fx:id="btnPlay" mnemonicParsing="false" onAction="#btnPlayClicked" text="Play">
                      <HBox.margin>
                         <Insets left="20.0" right="20.0" />
                      </HBox.margin>
