@@ -8,6 +8,7 @@ public class Cart {
 	
 	private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
 	public static final int MAX_NUMBERS_ORDERED = 20;
+	
 	public ObservableList<Media> getItemsOrdered() {
 		return itemsOrdered;
 	}

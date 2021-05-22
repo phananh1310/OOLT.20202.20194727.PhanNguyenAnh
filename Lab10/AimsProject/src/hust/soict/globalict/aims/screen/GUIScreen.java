@@ -18,8 +18,8 @@ public class GUIScreen {
 		Cart cart = new Cart();
 
 		//Add video to store
-		Media dvd1 = new DigitalVideoDisc("Harry P","aaaa","aaaa",1,5.6f);
-		Media dvd2 = new DigitalVideoDisc("H Potter ","bbbb","aaaa",1,5.3f);
+		Media dvd1 = new DigitalVideoDisc("Duc Nam","aaaa","aaaa",1,5.6f);
+		Media dvd2 = new DigitalVideoDisc("Duc Viet ","bbbb","aaaa",1,5.3f);
 		Media dvd3 = new DigitalVideoDisc("Your NameHary","cccc","aaaa",2,5.3f);
 		Media dvd4 = new DigitalVideoDisc("Harry P","dddd","aaaa",1,7.1f);
 		Media dvd5 = new DigitalVideoDisc("EEEE","eeee","aaaa",1,3.3f);
@@ -39,6 +39,10 @@ public class GUIScreen {
 		
 		store.addMediatoStore(book1);
 		cart.addMedia(book1);
+		cart.addMedia(dvd1);
+		cart.addMedia(dvd2);
+		
+		new StoreScreen(store);
 		new CartScreen(cart);
 	}
 }
