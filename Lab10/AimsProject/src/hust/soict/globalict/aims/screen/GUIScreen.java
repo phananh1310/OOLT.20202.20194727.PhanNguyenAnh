@@ -12,9 +12,10 @@ import hust.soict.globalict.aims.media.Media;
 import hust.soict.globalict.aims.media.Track;
 
 public class GUIScreen {
-	public Cart cart = new Cart();
+	
 	public static void main(String[] args) {
 		Store store = new Store();
+		Cart cart = new Cart();
 
 		//Add video to store
 		Media dvd1 = new DigitalVideoDisc("Harry P","aaaa","aaaa",1,5.6f);
@@ -37,7 +38,7 @@ public class GUIScreen {
 		store.addListMediatoStore(new Media [] {dvd1,dvd2,dvd3,dvd4,dvd5,dvd6,dvd7,cd});
 		
 		store.addMediatoStore(book1);
-		
-		new StoreScreen(store);
+		cart.addMedia(book1);
+		new CartScreen(cart);
 	}
 }
