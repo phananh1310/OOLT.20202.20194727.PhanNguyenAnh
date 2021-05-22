@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.awt.Container"/>
+    <fullyQualifiedTypeName name="javax.swing.JTextField"/>
+    <fullyQualifiedTypeName name="javax.swing.UIManager.LookAndFeelInfo"/>
+    <fullyQualifiedTypeName name="sun.jvm.hotspot.oops.java_lang_Class"/>
+    <fullyQualifiedTypeName name="java.awt.event.ActionEvent"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="javax.swing.BoxLayout"/>
+    <fullyQualifiedTypeName name="java.awt.Font"/>
+    <fullyQualifiedTypeName name="hust.soict.globalict.aims.media.Playable"/>
+    <fullyQualifiedTypeName name="java.awt.Color"/>
+    <fullyQualifiedTypeName name="hust.soict.globalict.aims.screen.StoreScreen"/>
+    <fullyQualifiedTypeName name="javax.swing.JLabel"/>
+    <fullyQualifiedTypeName name="hust.soict.globalict.aims.media.DigitalVideoDisc"/>
+    <fullyQualifiedTypeName name="hust.soict.globalict.aims.media.Media"/>
+    <fullyQualifiedTypeName name="javax.swing.plaf.basic.BasicTabbedPaneUI.TabbedPaneLayout"/>
+    <fullyQualifiedTypeName name="hust.soict.globalict.aims.media.Book"/>
+    <fullyQualifiedTypeName name="javax.swing.JButton"/>
+    <fullyQualifiedTypeName name="java.awt.FlowLayout"/>
+    <fullyQualifiedTypeName name="java.awt.GridLayout"/>
+    <fullyQualifiedTypeName name="javax.swing.JFrame"/>
+    <fullyQualifiedTypeName name="javax.swing.WindowConstants"/>
+    <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+    <fullyQualifiedTypeName name="hust.soict.globalict.aims.media.CompactDisc"/>
+    <fullyQualifiedTypeName name="hust.soict.globalict.aims.media.Track"/>
+    <fullyQualifiedTypeName name="hust.soict.globalict.aims.cart.Cart"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.awt.Frame"/>
+</qualifiedTypeNameHistroy>

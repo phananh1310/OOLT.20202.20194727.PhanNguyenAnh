@@ -9,6 +9,7 @@ import javax.swing.*;
 import javax.swing.plaf.basic.BasicTabbedPaneUI.TabbedPaneLayout;
 
 import hust.soict.globalict.aims.*;
+import hust.soict.globalict.aims.cart.Cart;
 import hust.soict.globalict.aims.media.Book;
 import hust.soict.globalict.aims.media.CompactDisc;
 import hust.soict.globalict.aims.media.DigitalVideoDisc;
@@ -116,8 +117,20 @@ public class StoreScreen extends JFrame{
 				public void actionPerformed(ActionEvent e) {
 					Media media = panel.make();
 					store.addMediatoStore(media);
-					panel.add(new JLabel("Media " + panel.getTfTitle().getText() +" added!"));
-					media.display();
+					
+					JFrame f = new JFrame();
+					JDialog dialog = new JDialog(f,"Media " + panel.getTfTitle().getText() + " added. Detail ");
+					
+					dialog.add(new JTextArea(media.toString()));
+					if (media instanceof DigitalVideoDisc)
+						dialog.setSize(400, 100);
+					else if (media instanceof Book)
+						dialog.setSize(media.toString().length()*2,150);
+					else if (media instanceof CompactDisc)
+						dialog.setSize(media.toString().length(), 600);
+					dialog.setAlwaysOnTop(true);
+					dialog.setVisible(true);
+				
 					setVisible(true);
 				}
 			});
@@ -163,34 +176,6 @@ public class StoreScreen extends JFrame{
 		}
 		return center;
 		
-	}
-	
-	
-	public static void main(String[] args) {
-		Store store = new Store();
-		//Add video to store
-		Media dvd1 = new DigitalVideoDisc("Harry P","aaaa","aaaa",1,5.6f);
-		Media dvd2 = new DigitalVideoDisc("H Potter ","bbbb","aaaa",1,5.3f);
-		Media dvd3 = new DigitalVideoDisc("Your NameHary","cccc","aaaa",2,5.3f);
-		Media dvd4 = new DigitalVideoDisc("Harry P","dddd","aaaa",1,7.1f);
-		Media dvd5 = new DigitalVideoDisc("EEEE","eeee","aaaa",1,3.3f);
-		Media dvd6 = new DigitalVideoDisc("EEEE","eeee","aaaa",1,3.3f);
-		Media dvd7 = new DigitalVideoDisc("EEEE","eeee","aaaa",1,3.3f);
-		Media cd = new CompactDisc("EEEE","eeee","aaaa","NA",3.3f);
-		Track track = new Track("Track1",5);
-		cd.addTrack(track);
-		track = new Track("Track2",8);cd.addTrack(track);
-
-		List<String> authors = new ArrayList<String>();
-		Media book1 = new Book("Phan Anh","abc", 1.6f,authors);
-		book1.addAuthor("Phan Anh");
-		book1.setContent("d d as  l asds ahs as ue  da ad");
-		
-		store.addListMediatoStore(new Media [] {dvd1,dvd2,dvd3,dvd4,dvd5,dvd6,dvd7,cd});
-		
-		store.addMediatoStore(book1);
-		
-		new StoreScreen(store);
 	}
 	
 }
