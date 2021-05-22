@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import hust.soict.globalict.aims.cart.Cart;
 import hust.soict.globalict.aims.media.Media;
 import hust.soict.globalict.aims.media.Playable;
 
@@ -35,7 +36,8 @@ public class MediaStore extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// add to cart here
-				Frame f = new JFrame("Message");
+				WRAP.cart.addMedia(media);
+				JFrame f = new JFrame("Message");
 				f.add(new JLabel("Cart added!"));
 				f.setSize(350,100);
 				f.setVisible(true);

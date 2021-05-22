@@ -21,6 +21,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class CartScreenController {
+	private Cart cart;
 	
 	@FXML
     private ToggleGroup filterCategory;
@@ -31,7 +32,6 @@ public class CartScreenController {
 	@FXML
 	 private Button btnRemove;
 
-	private Cart cart;
 	
     @FXML
     private TableView<Media> tblMedia;

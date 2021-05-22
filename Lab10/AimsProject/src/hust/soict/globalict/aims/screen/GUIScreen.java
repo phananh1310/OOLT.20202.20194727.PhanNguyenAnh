@@ -1,5 +1,7 @@
 package hust.soict.globalict.aims.screen;
 
+
+import java.awt.Container;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +18,7 @@ public class GUIScreen {
 	public static void main(String[] args) {
 		Store store = new Store();
 		Cart cart = new Cart();
-
+		
 		//Add video to store
 		Media dvd1 = new DigitalVideoDisc("Duc Nam","aaaa","aaaa",1,5.6f);
 		Media dvd2 = new DigitalVideoDisc("Duc Viet ","bbbb","aaaa",1,5.3f);
@@ -38,11 +40,14 @@ public class GUIScreen {
 		store.addListMediatoStore(new Media [] {dvd1,dvd2,dvd3,dvd4,dvd5,dvd6,dvd7,cd});
 		
 		store.addMediatoStore(book1);
-		cart.addMedia(book1);
-		cart.addMedia(dvd1);
-		cart.addMedia(dvd2);
 		
-		new StoreScreen(store);
-		new CartScreen(cart);
+
+		//wrap2store mean wrap.storescreen.setVisible = true, wrap.cartscreen.setvisivle = false
+		// to see FRAME use setVisible!!!!
+		WRAP.wrap2store(store, cart);
+		
+		
+		
 	}
+
 }
