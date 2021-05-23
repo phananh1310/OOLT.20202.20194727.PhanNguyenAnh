@@ -2,7 +2,11 @@ package hust.soict.globalict.aims;
 
 import java.util.ArrayList;
 
+import hust.soict.globalict.aims.media.Book;
+import hust.soict.globalict.aims.media.CompactDisc;
+import hust.soict.globalict.aims.media.DigitalVideoDisc;
 import hust.soict.globalict.aims.media.Media;
+import hust.soict.globalict.aims.screen.WRAP;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -17,6 +21,36 @@ public class Store {
 	public ObservableList<Media> getItemsInStore(){
 		return itemsInStore;
 	}
+	
+	public ObservableList<Media> getBooksInStore(){
+		ObservableList<Media> List = FXCollections.observableArrayList();
+    	for (Media m: itemsInStore) {
+    		if (m instanceof Book) {
+    			List.add(m);
+    		}
+    	}
+    		return List;
+	}
+	
+    	public ObservableList<Media> getCDsInStore(){
+    		ObservableList<Media> List = FXCollections.observableArrayList();
+        	for (Media m: itemsInStore) {
+        		if (m instanceof CompactDisc) {
+        			List.add(m);
+        		}
+        	}
+        		return List;
+    	}
+        	
+        	public ObservableList<Media> getDVDsInStore(){
+        		ObservableList<Media> List = FXCollections.observableArrayList();
+            	for (Media m: itemsInStore) {
+            		if (m instanceof DigitalVideoDisc) {
+            			List.add(m);
+            		}
+            	}
+            		return List;
+        	}
 	
 	public void addMediatoStore(Media media) {
 	
