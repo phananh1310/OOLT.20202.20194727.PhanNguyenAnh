@@ -3,16 +3,18 @@ package hust.soict.globalict.aims;
 import java.util.ArrayList;
 
 import hust.soict.globalict.aims.media.Media;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Store {
-	private ArrayList<Media> itemsInStore = new ArrayList<Media> ();
+	private ObservableList<Media> itemsInStore = FXCollections.observableArrayList();
 	private int Medianumber=0;
 	
 	public Store() {
 		super();
 	}
 	
-	public ArrayList<Media> getItemsInStore(){
+	public ObservableList<Media> getItemsInStore(){
 		return itemsInStore;
 	}
 	

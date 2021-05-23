@@ -40,8 +40,4 @@ public class CartScreen extends JFrame {
 		});
 		
 	}
-	
-	
-
-	
 }

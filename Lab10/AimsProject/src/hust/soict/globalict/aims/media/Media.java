@@ -80,7 +80,16 @@ public abstract class Media implements Comparable<Media> {
 	
 	public void display() {		
 	}
-	public boolean search(String title2) {
+	
+	public boolean search(String title) {
+		String[] arr = title.split(" ");    
+
+		for ( String word : arr) {
+			if(this.getTitle().toLowerCase().contains(word.toLowerCase())) {
+				return true;
+			}
+		}
+		
 		return false;
 	}
 	public int getLength() {

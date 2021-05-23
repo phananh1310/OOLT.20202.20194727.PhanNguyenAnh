@@ -15,6 +15,7 @@ import hust.soict.globalict.aims.media.CompactDisc;
 import hust.soict.globalict.aims.media.DigitalVideoDisc;
 import hust.soict.globalict.aims.media.Media;
 import hust.soict.globalict.aims.media.Track;
+import javafx.collections.ObservableList;
 public class StoreScreen extends JFrame{
 	private Store store;
 	private JPanel center = new JPanel();
@@ -186,7 +187,7 @@ public class StoreScreen extends JFrame{
 		JPanel center = new JPanel();
 		center.setLayout(new GridLayout(3,3,2,2));
 		
-		ArrayList<Media> mediaInStore = store.getItemsInStore();
+		ObservableList<Media> mediaInStore = store.getItemsInStore();
 		for (int i=0;i<9;i++) {
 			MediaStore cell = new MediaStore(mediaInStore.get(i));
 			center.add(cell);

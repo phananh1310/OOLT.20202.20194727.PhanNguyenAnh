@@ -10,6 +10,9 @@ import javax.swing.JTextArea;
 import java.awt.*;
 
 import hust.soict.globalict.aims.cart.Cart;
+import hust.soict.globalict.aims.media.Book;
+import hust.soict.globalict.aims.media.CompactDisc;
+import hust.soict.globalict.aims.media.DigitalVideoDisc;
 import hust.soict.globalict.aims.media.Media;
 import hust.soict.globalict.aims.media.Playable;
 import javafx.beans.value.ChangeListener;
@@ -28,6 +31,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
 
 public class CartScreenController {
 	private Cart cart;
@@ -43,6 +47,8 @@ public class CartScreenController {
 	@FXML
 	 private Button btnRemove;
 
+	@FXML
+	private Button addToCartBtn;
 	
     @FXML
     private TableView<Media> tblMedia;
@@ -70,16 +76,20 @@ public class CartScreenController {
     
     @FXML
     private Button placeOrderbtn;
+    
     @FXML
     private MenuItem viewStoreMenuChoice;
 
     @FXML
     private MenuItem viewCartMenuChoice;
 
+    
     public CartScreenController(Cart cart) {
 		this.cart=cart;
 	}
-
+   
+    private static int STORE=1,CART=0;
+    private int StoreOrCart ; // 1 mean store, 0 mean cart
 	@FXML
     private void initialize() {
     	colMediaTitle.setCellValueFactory(new PropertyValueFactory<Media, String>("title"));
@@ -87,9 +97,10 @@ public class CartScreenController {
     	colMediaCost.setCellValueFactory(new PropertyValueFactory<Media, Float>("cost"));
     	tblMedia.setItems(this.cart.getItemsOrdered());
     	updateTotalCost();
- 
+    	addToCartBtn.setVisible(false);
     	btnPlay.setVisible(false);
     	btnRemove.setVisible(false);
+    	StoreOrCart = CART;
     	
     	tblMedia.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Media>() {
     		@Override
@@ -111,11 +122,17 @@ public class CartScreenController {
 
 	protected void ShowFilteredMedia(String newValue) {
 		ObservableList<Media> FilteredList = FXCollections.observableArrayList();
+		ObservableList<Media> InitialList = FXCollections.observableArrayList();// don't know store or cart
+		if (StoreOrCart==STORE)
+			InitialList=WRAP.store.getItemsInStore();
+		else //cart
+			InitialList=WRAP.cart.getItemsOrdered();
+		
 		if (newValue == "") {
-			FilteredList = cart.getItemsOrdered();
+			FilteredList = InitialList;
 		}
 		else {
-		for(Media item : cart.getItemsOrdered()) {
+		for(Media item : InitialList) {
 			if (item.search(newValue)) {
 				FilteredList.add(item);
 			}
@@ -129,7 +146,8 @@ public class CartScreenController {
 	}
 
 	protected void updateButtonBar(Media newValue) {
-		btnRemove.setVisible(true);
+		if (tblMedia.getItems()==WRAP.cart.getItemsOrdered()) // means in cart table view
+			btnRemove.setVisible(true);
 		if (newValue instanceof Playable) {
 			btnPlay.setVisible(true);
 		}
@@ -170,28 +188,62 @@ public class CartScreenController {
     }
 	@FXML
     void viewStoreMenuChoiceClicked(ActionEvent event) {
-		WRAP.storeScreen = new StoreScreen(WRAP.store);
-    }
-
-    @FXML
-    void viewCartMenuChoiceClicked(ActionEvent event) {
-// tro ve man hinh chinh cua this Screen
-    }
-    
-    @FXML
-    void addBookMenuItemClicked(ActionEvent event) {
+    	addToCartBtn.setVisible(true);
+		tblMedia.setItems(WRAP.store.getItemsInStore());
+		btnRemove.setVisible(false);
+		StoreOrCart=STORE;
 		
     }
 
     @FXML
-    void addCDMenuItemClicked(ActionEvent event) {
+    void viewCartMenuChoiceClicked(ActionEvent event) {
+    	addToCartBtn.setVisible(false);
+    	tblMedia.setItems(WRAP.cart.getItemsOrdered());
+		StoreOrCart=CART;
 
+    }
+    
+    @FXML
+    void addBookMenuItemClicked(ActionEvent event) {
+    	btnRemove.setVisible(false);
+    	addToCartBtn.setVisible(true);
+    	ObservableList<Media> List = FXCollections.observableArrayList();
+    	for (Media m: WRAP.store.getItemsInStore()) {
+    		if (m instanceof Book) {
+    			List.add(m);
+    		}
+    	}
+    	tblMedia.setItems(List);
+    	
+    }
+
+    @FXML
+    void addCDMenuItemClicked(ActionEvent event) {
+    	btnRemove.setVisible(false);
+    	addToCartBtn.setVisible(true);
+    	ObservableList<Media> List = FXCollections.observableArrayList();
+    	for (Media m: WRAP.store.getItemsInStore()) {
+    		if (m instanceof CompactDisc ) {
+    			List.add(m);
+    		}
+    	}
+    	tblMedia.setItems(List);
     }
 
     @FXML
     void addDVDMenuItemClicked(ActionEvent event) {
-
+    	btnRemove.setVisible(false);
+    	addToCartBtn.setVisible(true);
+    	ObservableList<Media> List = FXCollections.observableArrayList();
+    	for (Media m: WRAP.store.getItemsInStore()) {
+    		if (m instanceof DigitalVideoDisc ) {
+    			List.add(m);
+    		}
+    	}
+    	tblMedia.setItems(List);
     }
+    
+   
     @FXML
     void btnPlayClicked(ActionEvent event) {
     	JFrame f = new JFrame();
@@ -200,5 +252,18 @@ public class CartScreenController {
 		Media media = tblMedia.getSelectionModel().getSelectedItem();
 		dialog.add(new JTextArea(media.playToString()));
 		dialog.setVisible(true);
+    }
+    @FXML
+    void addToCartBtnClicked(ActionEvent event) {
+    	Media media = tblMedia.getSelectionModel().getSelectedItem();
+		cart.addMedia(media);
+		updateTotalCost();
+		
+		//Cart added Message
+		JFrame f = new JFrame("Message");
+		f.add(new JLabel("Cart added!"));
+		f.setSize(350,100);
+		f.setVisible(true);
+		
     }
 }

@@ -21,7 +21,6 @@ public class GUIScreen {
 		Store store = new Store();
 		Cart cart = new Cart();
 		
-		//Add video to store
 		Media dvd1 = new DigitalVideoDisc("Duc Nam","aaaa","aaaa",1,5.6f);
 		Media dvd2 = new DigitalVideoDisc("Duc Viet ","bbbb","aaaa",1,5.3f);
 		Media dvd3 = new DigitalVideoDisc("Your NameHary","cccc","aaaa",2,5.3f);
@@ -40,12 +39,8 @@ public class GUIScreen {
 		book1.setContent("d d as  l asds ahs as ue  da ad");
 		
 		store.addListMediatoStore(new Media [] {dvd1,dvd2,dvd3,dvd4,dvd5,dvd6,dvd7,cd});
-		
 		store.addMediatoStore(book1);
 		
-
-		//wrap2store mean wrap.storescreen.setVisible = true, wrap.cartscreen.setvisivle = false
-		// to see FRAME use setVisible!!!!
 		
 		WRAP.wrap2store(store, cart);
 		
