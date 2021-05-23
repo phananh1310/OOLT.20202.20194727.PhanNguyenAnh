@@ -88,7 +88,7 @@ public class CartScreenController {
 		this.cart=cart;
 	}
    
-    private static int STORE=1,CART=0;
+    private static int STORE=1,CART=0, STOREBOOK=2,STORECD=3,STOREDVD=4;
     private int StoreOrCart ; // 1 mean store, 0 mean cart
 	@FXML
     private void initialize() {
@@ -125,9 +125,20 @@ public class CartScreenController {
 		ObservableList<Media> InitialList = FXCollections.observableArrayList();// don't know store or cart
 		if (StoreOrCart==STORE)
 			InitialList=WRAP.store.getItemsInStore();
-		else //cart
+		else if(StoreOrCart==CART)//cart
 			InitialList=WRAP.cart.getItemsOrdered();
-		
+		else if (StoreOrCart==STOREBOOK) { 
+			InitialList= WRAP.store.getBooksInStore();
+
+		}
+		else if (StoreOrCart==STORECD) {
+			InitialList=WRAP.store.getCDsInStore();
+
+		}
+		else if (StoreOrCart==STOREDVD) {
+			InitialList=WRAP.store.getDVDsInStore();
+
+		}
 		if (newValue == "") {
 			FilteredList = InitialList;
 		}
@@ -200,6 +211,7 @@ public class CartScreenController {
     	addToCartBtn.setVisible(false);
     	tblMedia.setItems(WRAP.cart.getItemsOrdered());
 		StoreOrCart=CART;
+		updateTotalCost();
 
     }
     
@@ -207,12 +219,8 @@ public class CartScreenController {
     void addBookMenuItemClicked(ActionEvent event) {
     	btnRemove.setVisible(false);
     	addToCartBtn.setVisible(true);
-    	ObservableList<Media> List = FXCollections.observableArrayList();
-    	for (Media m: WRAP.store.getItemsInStore()) {
-    		if (m instanceof Book) {
-    			List.add(m);
-    		}
-    	}
+    	ObservableList<Media> List =  WRAP.store.getBooksInStore();
+    	StoreOrCart = STOREBOOK;
     	tblMedia.setItems(List);
     	
     }
@@ -221,12 +229,8 @@ public class CartScreenController {
     void addCDMenuItemClicked(ActionEvent event) {
     	btnRemove.setVisible(false);
     	addToCartBtn.setVisible(true);
-    	ObservableList<Media> List = FXCollections.observableArrayList();
-    	for (Media m: WRAP.store.getItemsInStore()) {
-    		if (m instanceof CompactDisc ) {
-    			List.add(m);
-    		}
-    	}
+    	ObservableList<Media> List =  WRAP.store.getCDsInStore();
+    	StoreOrCart = STORECD;
     	tblMedia.setItems(List);
     }
 
@@ -234,12 +238,8 @@ public class CartScreenController {
     void addDVDMenuItemClicked(ActionEvent event) {
     	btnRemove.setVisible(false);
     	addToCartBtn.setVisible(true);
-    	ObservableList<Media> List = FXCollections.observableArrayList();
-    	for (Media m: WRAP.store.getItemsInStore()) {
-    		if (m instanceof DigitalVideoDisc ) {
-    			List.add(m);
-    		}
-    	}
+    	ObservableList<Media> List =  WRAP.store.getDVDsInStore();
+    	StoreOrCart = STOREDVD;
     	tblMedia.setItems(List);
     }
     

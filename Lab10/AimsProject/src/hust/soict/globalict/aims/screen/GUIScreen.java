@@ -41,7 +41,6 @@ public class GUIScreen {
 		store.addListMediatoStore(new Media [] {dvd1,dvd2,dvd3,dvd4,dvd5,dvd6,dvd7,cd});
 		store.addMediatoStore(book1);
 		
-		
 		WRAP.wrap2store(store, cart);
 		
 		
