@@ -36,7 +36,7 @@ public class AddBookToStoreScreen extends AddItemToStoreScreen {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JFrame popup = new JFrame("Add track");
+				JFrame popup = new JFrame("Add Author");
 				popup.setSize(500,300 );
 				popup.setLayout(new GridLayout(2,1));
 				
