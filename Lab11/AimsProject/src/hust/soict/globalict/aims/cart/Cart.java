@@ -3,6 +3,7 @@ import java.util.*;
 
 import javax.naming.LimitExceededException;
 
+import hust.soict.globalict.aims.exception.LuckyItemException;
 import hust.soict.globalict.aims.media.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -145,9 +146,42 @@ public class Cart {
 
 	
 
-	public void getALuckyItem() {
-        int rand = (int)(Math.random() * itemsOrdered.size()) + 0;
-        itemsOrdered.get(rand).setCost(0);
+	public void getALuckyItem() throws LuckyItemException{
+		// this list contain index of valid lucky item in itemsOrdered
+		ArrayList<Integer> validItem = new ArrayList<Integer>();
+
+		// get cost of min_value item
+		double minCost = Double.MAX_VALUE;
+		for(Media item : itemsOrdered) {
+			if (item.getCost()<minCost) 
+				minCost = item.getCost();
+		}
+		
+		// define threshold
+		
+		final double priceThreshold = 100;
+		final double numOfItemsThreshold = 6;
+		final double maxLuckyItemPrice = 30;
+		double luckyItemPriceThreshold = (this.totalCost()/priceThreshold) * minCost  ;
+		
+		if (luckyItemPriceThreshold>maxLuckyItemPrice)
+			luckyItemPriceThreshold = maxLuckyItemPrice;
+		
+		for(Media item : itemsOrdered) {
+			if (item.getCost()<=luckyItemPriceThreshold) 
+				validItem.add(itemsOrdered.indexOf(item));
+		}
+
+		if (this.getQtyOrdered()>numOfItemsThreshold&&this.totalCost()>priceThreshold) {
+		
+        int rand = (int)(Math.random() * validItem.size()) + 0;
+        itemsOrdered.get(validItem.get(rand)).setCost(0);
+		}
+		else if (this.getQtyOrdered()<=numOfItemsThreshold)
+			throw new LuckyItemException("Number of Items not reach Threshold to get a lucky Item!");
+		else if (this.totalCost()<=priceThreshold)
+			throw new LuckyItemException("Total Cost not reach Threshold to get a lucky Item!");
+		
     }
 	public int getQtyOrdered() {
 		return itemsOrdered.size();

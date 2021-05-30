@@ -8,6 +8,7 @@ import javax.naming.LimitExceededException;
 import javax.swing.JOptionPane;
 
 import hust.soict.globalict.aims.cart.Cart;
+import hust.soict.globalict.aims.exception.LuckyItemException;
 import hust.soict.globalict.aims.media.*;
 
 public class Aims {
@@ -395,8 +396,12 @@ public class Aims {
 		    			     break;
 
 		    			     case 4:
+		    			    	 try {
 		    			    cart.getALuckyItem();
-		    		  
+		    			    	 }
+		    			    	 catch (LuckyItemException e) {
+		    			    		 e.printStackTrace();
+		    			    	 }
 		    				break;
 		    			     case 5:
 		    			    	 if (cart.getQtyOrdered()>0)
