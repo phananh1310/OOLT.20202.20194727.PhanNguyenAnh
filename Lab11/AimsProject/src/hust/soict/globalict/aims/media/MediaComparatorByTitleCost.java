@@ -6,7 +6,14 @@ public class MediaComparatorByTitleCost implements Comparator<Media> {
 
 	@Override
 	public int compare(Media o1, Media o2) {
-		int r = o1.getTitle().compareTo(o2.getTitle());
+		
+		int r = 0;
+		try {
+		 r = o1.getTitle().compareTo(o2.getTitle());
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 		if (r==0) {
 			float f1 = o1.getCost(); 
 	        float f2 = o2.getCost();

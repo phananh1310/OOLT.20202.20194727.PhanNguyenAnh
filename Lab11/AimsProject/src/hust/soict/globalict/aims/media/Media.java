@@ -132,20 +132,31 @@ public abstract class Media implements Comparable<Media> {
 		
 	}
 	@Override
-	public boolean equals(Object media) {
+	public boolean equals(Object media) throws ClassCastException,NullPointerException {
+		if (media == null) throw new NullPointerException("ERROR: Null Pointer!");
+		
 		if (media instanceof Media) {
 		return (this.id==((Media)media).getId());
 		}
-		else return false;
+		else { 
+			throw new ClassCastException("ERROR: Wrong Class of Object!");
+		}
 	}
-	 
 	@Override
-	public int compareTo(Media o) {
-		int r=this.getTitle().compareTo(o.getTitle());
+	 public int compareTo(Media o) throws ClassCastException,NullPointerException {
+		
+		if (o==null) throw new NullPointerException("ERROR: Null Pointer!");
+		if (o instanceof Media) {
+		
+		int r=this.getTitle().compareTo(((Media) o).getTitle());
 		if (r==0) 
-			return this.getCategory().compareTo(o.getCategory());
-		else 
+			r= this.getCategory().compareTo(((Media) o).getCategory());
+			
 			return r;
+		}
+		else {
+			throw new ClassCastException("ERROR: Wrong Class of Object!");
+		}
 	}
 	
 

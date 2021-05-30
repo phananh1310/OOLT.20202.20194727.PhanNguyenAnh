@@ -10,7 +10,14 @@ public class MediaComparatorByCostTitle implements Comparator<Media> {
         float f2 = m2.getCost();
         if (f1>f2) return -1;
         if (f1<f2) return 1;
-        return m1.getTitle().compareTo(m2.getTitle());
+        int r = 0;
+        try {
+        r= m1.getTitle().compareTo(m2.getTitle());
+        }
+        catch (Exception e) {
+        	e.printStackTrace();
+        }
+        return r;
     }
 
 }
